@@ -8,14 +8,13 @@ export default function HomePage() {
   const [chapterIdx, setChapterIdx] = useState(0);
 
   return (
-    <div className="max-w-md mx-auto px-4 pt-6">
-      <header className="mb-4">
+    <div className="max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 xl:px-16 pt-6">
+      <header className="mb-4 md:hidden">
         <p className="text-[11px] uppercase tracking-[0.18em] text-dust-200/70">The Bhagavad Gita</p>
         <h1 className="text-2xl font-serif-d text-dharma-400 mt-1">A companion, not a substitute</h1>
       </header>
 
-      {/* Chapter pills — horizontal scroll */}
-      <div className="no-scrollbar overflow-x-auto -mx-4 px-4 mb-5">
+      <div className="no-scrollbar overflow-x-auto -mx-4 px-4 mb-5 md:hidden">
         <div className="flex gap-2 w-max">
           {CHAPTERS.map((ch, i) => {
             const active = i === chapterIdx;
@@ -36,7 +35,38 @@ export default function HomePage() {
         </div>
       </div>
 
-      <ChapterReader key={chapterIdx} chapter={CHAPTERS[chapterIdx]} />
+      <div className="md:grid md:grid-cols-[220px_minmax(0,1fr)] lg:grid-cols-[260px_minmax(0,1fr)] md:gap-8 lg:gap-12">
+        <aside className="hidden md:block">
+          <div className="sticky top-24">
+            <p className="text-[10px] uppercase tracking-[0.18em] text-dust-200/60 mb-3">Chapters</p>
+            <div className="space-y-0.5">
+              {CHAPTERS.map((ch, i) => {
+                const active = i === chapterIdx;
+                return (
+                  <button
+                    key={ch.n}
+                    onClick={() => setChapterIdx(i)}
+                    className={`w-full text-left px-3 py-2 rounded-lg text-[13px] transition-colors ${
+                      active
+                        ? "bg-dharma-400/15 text-dharma-400 border-l-2 border-dharma-400"
+                        : "text-dust-100 hover:bg-dust-800/40 border-l-2 border-transparent"
+                    }`}
+                  >
+                    <span className="text-[11px] tabular-nums opacity-60 mr-2">
+                      {String(ch.n).padStart(2, "0")}
+                    </span>
+                    {ch.title}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        </aside>
+
+        <div className="md:max-w-[720px] lg:max-w-[800px] xl:max-w-[860px] md:mx-auto">
+          <ChapterReader key={chapterIdx} chapter={CHAPTERS[chapterIdx]} />
+        </div>
+      </div>
     </div>
   );
 }

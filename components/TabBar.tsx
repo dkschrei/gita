@@ -48,33 +48,78 @@ const tabs = [
 
 export default function TabBar() {
   const pathname = usePathname();
+  const isActive = (href: string) =>
+    pathname === href || (href === "/" && pathname.startsWith("/storyboard"));
+
   return (
-    <nav
-      className="fixed bottom-0 left-0 right-0 z-40 backdrop-blur-xl"
-      style={{
-        background: "rgba(10, 8, 7, 0.85)",
-        borderTop: "0.5px solid rgba(217, 164, 65, 0.2)",
-        paddingBottom: "env(safe-area-inset-bottom, 0px)",
-      }}
-    >
-      <div className="max-w-md mx-auto flex">
-        {tabs.map((t) => {
-          const active = pathname === t.href || (t.href === "/" && pathname.startsWith("/storyboard"));
-          return (
-            <Link
-              key={t.href}
-              href={t.href}
-              className={clsx(
-                "flex-1 flex flex-col items-center justify-center gap-1 py-2.5",
-                active ? "text-dharma-400" : "text-dust-200"
-              )}
-            >
-              {t.icon(active)}
-              <span className="text-[10px] tracking-wide">{t.label}</span>
-            </Link>
-          );
-        })}
-      </div>
-    </nav>
+    <>
+      <nav
+        className="fixed bottom-0 left-0 right-0 z-40 backdrop-blur-xl md:hidden"
+        style={{
+          background: "rgba(10, 8, 7, 0.85)",
+          borderTop: "0.5px solid rgba(217, 164, 65, 0.2)",
+          paddingBottom: "env(safe-area-inset-bottom, 0px)",
+        }}
+      >
+        <div className="max-w-md mx-auto flex">
+          {tabs.map((t) => {
+            const active = isActive(t.href);
+            return (
+              <Link
+                key={t.href}
+                href={t.href}
+                className={clsx(
+                  "flex-1 flex flex-col items-center justify-center gap-1 py-2.5",
+                  active ? "text-dharma-400" : "text-dust-200"
+                )}
+              >
+                {t.icon(active)}
+                <span className="text-[10px] tracking-wide">{t.label}</span>
+              </Link>
+            );
+          })}
+        </div>
+      </nav>
+
+      <nav
+        className="hidden md:flex fixed top-0 left-0 right-0 z-40 backdrop-blur-xl items-center"
+        style={{
+          background: "rgba(10, 8, 7, 0.85)",
+          borderBottom: "0.5px solid rgba(217, 164, 65, 0.2)",
+          paddingTop: "env(safe-area-inset-top, 0px)",
+        }}
+      >
+        <div className="max-w-[1600px] mx-auto w-full flex items-center px-6 lg:px-12 xl:px-16 py-3">
+          <div className="flex-1 flex items-baseline gap-2">
+            <span className="text-[10px] uppercase tracking-[0.22em] text-dust-200/60">
+              The Bhagavad Gita
+            </span>
+            <span className="text-[15px] font-serif-d text-dharma-400 hidden lg:inline">
+              · Companion
+            </span>
+          </div>
+          <div className="flex gap-1">
+            {tabs.map((t) => {
+              const active = isActive(t.href);
+              return (
+                <Link
+                  key={t.href}
+                  href={t.href}
+                  className={clsx(
+                    "flex items-center gap-2 px-3 py-2 rounded-full text-[13px] font-medium transition-colors",
+                    active
+                      ? "bg-dharma-400 text-dust-900"
+                      : "text-dust-100 hover:text-dharma-400 hover:bg-dust-800/40"
+                  )}
+                >
+                  <span className="w-4 h-4 inline-flex">{t.icon(active)}</span>
+                  {t.label}
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </nav>
+    </>
   );
 }

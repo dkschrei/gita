@@ -1,6 +1,6 @@
 export default function AboutPage() {
   return (
-    <div className="max-w-md mx-auto px-4 pt-6">
+    <div className="max-w-2xl mx-auto px-4 md:px-8 pt-6">
       <header className="mb-5">
         <p className="text-[11px] uppercase tracking-[0.18em] text-dust-200/70">About</p>
         <h1 className="text-2xl font-serif-d text-dharma-400 mt-1">A companion, not a substitute</h1>

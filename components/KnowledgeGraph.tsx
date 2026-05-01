@@ -30,7 +30,7 @@ export default function KnowledgeGraph({ filter, onNodeTap }: Props) {
     if (!svgRef.current) return;
     const svgEl = svgRef.current;
     const width = svgEl.clientWidth || 360;
-    const height = 420;
+    const height = svgEl.clientHeight || 420;
 
     const filteredNodes = NODES.filter((n) => filter === "all" || n.kind === filter);
     const idSet = new Set(filteredNodes.map((n) => n.id));
@@ -140,15 +140,14 @@ export default function KnowledgeGraph({ filter, onNodeTap }: Props) {
 
   return (
     <div
-      className="rounded-2xl overflow-hidden"
+      className="rounded-2xl overflow-hidden h-[420px] md:h-[560px] lg:h-[640px]"
       style={{
         background: "rgba(255,255,255,0.02)",
         border: "0.5px solid rgba(217,164,65,0.15)",
-        height: 420,
         touchAction: "none",
       }}
     >
-      <svg ref={svgRef} style={{ width: "100%", height: 420, display: "block" }} />
+      <svg ref={svgRef} style={{ width: "100%", height: "100%", display: "block" }} />
     </div>
   );
 }

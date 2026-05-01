@@ -17,7 +17,7 @@ export default function GraphPage() {
   ];
 
   return (
-    <div className="max-w-md mx-auto px-4 pt-6">
+    <div className="max-w-5xl mx-auto px-4 md:px-8 pt-6">
       <header className="mb-3">
         <p className="text-[11px] uppercase tracking-[0.18em] text-dust-200/70">Knowledge map</p>
         <h1 className="text-2xl font-serif-d text-dharma-400 mt-1">How the pieces connect</h1>
@@ -62,7 +62,7 @@ export default function GraphPage() {
       {/* Index list — alphabetical, for the "I want to find X" case */}
       <div className="mt-6 mb-2">
         <p className="text-[11px] uppercase tracking-wider text-dust-200/60 mb-2">Full index</p>
-        <div className="grid grid-cols-2 gap-1.5">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1.5">
           {[...NODES]
             .filter((n) => filter === "all" || n.kind === filter)
             .sort((a, b) => a.name.localeCompare(b.name))
