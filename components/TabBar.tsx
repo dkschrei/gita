@@ -34,6 +34,15 @@ const tabs = [
     ),
   },
   {
+    href: "/ask",
+    label: "Ask",
+    icon: (active: boolean) => (
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth={active ? 2 : 1.5}>
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+      </svg>
+    ),
+  },
+  {
     href: "/about",
     label: "About",
     icon: (active: boolean) => (
@@ -53,6 +62,7 @@ export default function TabBar() {
 
   return (
     <>
+      {/* Mobile: bottom tab bar */}
       <nav
         className="fixed bottom-0 left-0 right-0 z-40 backdrop-blur-xl md:hidden"
         style={{
@@ -81,6 +91,7 @@ export default function TabBar() {
         </div>
       </nav>
 
+      {/* Desktop: top horizontal nav */}
       <nav
         className="hidden md:flex fixed top-0 left-0 right-0 z-40 backdrop-blur-xl items-center"
         style={{
@@ -89,7 +100,7 @@ export default function TabBar() {
           paddingTop: "env(safe-area-inset-top, 0px)",
         }}
       >
-        <div className="max-w-[1600px] mx-auto w-full flex items-center px-6 lg:px-12 xl:px-16 py-3">
+        <div className="max-w-7xl mx-auto w-full flex items-center px-6 lg:px-10 py-3">
           <div className="flex-1 flex items-baseline gap-2">
             <span className="text-[10px] uppercase tracking-[0.22em] text-dust-200/60">
               The Bhagavad Gita
