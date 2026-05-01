@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+html, body {
+  background: #0A0807;
+  color: #F0EBE0;
+  overscroll-behavior: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: var(--font-sans, 'Inter', system-ui, sans-serif);
+  padding-top: var(--safe-top);
+  padding-bottom: var(--safe-bottom);
+}
+
+.font-serif-d { font-family: 'Cormorant Garamond', Georgia, serif; }
+
+/* Hide scrollbars on horizontal panel scrollers */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Subtle paper grain background */
+.paper-grain {
+  background-image:
+    radial-gradient(at 20% 20%, rgba(217, 164, 65, 0.04) 0, transparent 40%),
+    radial-gradient(at 80% 70%, rgba(74, 125, 184, 0.04) 0, transparent 40%);
+}
