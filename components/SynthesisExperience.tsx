@@ -352,28 +352,22 @@ export default function SynthesisExperience() {
               <button
                 onClick={() => setMirrorIdx(Math.max(0, mirrorIdx - 1))}
                 disabled={mirrorIdx === 0}
-                className="px-3 py-1.5 rounded-full text-[12px] text-dust-200/70 disabled:opacity-30"
+                className="px-4 py-2 rounded-full text-[13px] font-medium border border-dust-600/40 text-dust-100 disabled:opacity-30"
               >
                 ← Prev
-              </button>
-              <button
-                onClick={() => setPaused(!paused)}
-                className="px-3 py-1.5 rounded-full text-[12px] text-dust-200/70"
-              >
-                {paused ? "Resume" : "Pause"}
               </button>
               <button
                 onClick={() => {
                   if (mirrorIdx >= mirrors.length - 1) setPhase("outro");
                   else setMirrorIdx(mirrorIdx + 1);
                 }}
-                className="px-3 py-1.5 rounded-full text-[12px] text-dust-200/70"
+                className="px-4 py-2 rounded-full text-[13px] font-medium bg-dharma-400 text-dust-900"
               >
-                Next →
+                {mirrorIdx >= mirrors.length - 1 ? "Finish →" : "Next →"}
               </button>
               <button
                 onClick={() => setPhase("outro")}
-                className="px-3 py-1.5 rounded-full text-[12px] text-dust-200/70"
+                className="px-4 py-2 rounded-full text-[13px] text-dust-200/60"
               >
                 Skip to end
               </button>
