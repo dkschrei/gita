@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { recordChapterVisit, loadProgress } from "@/lib/progress";
 import { CHAPTERS } from "@/lib/chapters";
 import ChapterReader from "@/components/ChapterReader";
-import ProfilePrompt from "@/components/ProfilePrompt";
 
 export default function HomePage() {
   const [chapterIdx, setChapterIdx] = useState(0);
