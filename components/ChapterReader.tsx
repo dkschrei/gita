@@ -7,6 +7,7 @@ import { PORTRAITS } from "./Portraits";
 import BottomSheet from "./BottomSheet";
 import { getNode, GraphNode } from "@/lib/graph";
 import FactSheet from "./FactSheet";
+import PersonalizedMirror from "./PersonalizedMirror";
 
 interface Props {
   chapter: Chapter;
@@ -157,6 +158,10 @@ export default function ChapterReader({ chapter }: Props) {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {isLastScene && (
+        <PersonalizedMirror chapterN={chapter.n} accent={accent} />
+      )}
 
       {isLastScene && (
         <div className="rounded-2xl p-4 mb-4 bg-dust-900/40 border border-dust-600/30">
