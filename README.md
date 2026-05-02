@@ -2,7 +2,7 @@
 
 An interactive walk through the Bhagavad Gita. Storyboard mode for reading chapter by chapter, knowledge graph mode for exploring characters and concepts.
 
-Built as a Next.js 14 app, deployable to Vercel in one command.
+Built as a Next.js 16 app, deployable to Vercel in one command.
 
 ## Quick start (local)
 

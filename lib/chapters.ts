@@ -65,7 +65,7 @@ export const CHAPTERS: Chapter[] = [
     mirror: {
       headline: "The modern mirror",
       tag: "Freeze · grief · paralysis",
-      body: "You're not on a battlefield. You're at a moment where doing the right thing means hurting people you love — leaving the family business, telling a parent their plan for you isn't your plan, firing someone who trusted you, ending a relationship that has history but no future. Chapter 1 is the freeze. The Gita doesn't shame the freeze. It starts there."
+      body: "You're not on a battlefield. You're at a moment where doing the right thing means hurting someone, or losing something, or facing a conversation you've been avoiding for months. Saying no to a parent. Telling a friend a hard truth. Walking away from something you've built. Standing your ground when it costs you. Chapter 1 is the freeze. The Gita doesn't shame the freeze. It starts there."
     },
     reflection: "Where in your life are you 'sitting down in the chariot' right now — knowing what needs to happen but unable to lift your hands to do it?",
     whyPrompts: [
@@ -193,7 +193,7 @@ export const CHAPTERS: Chapter[] = [
     mirror: {
       headline: "The modern mirror",
       tag: "Knowledge as the highest offering",
-      body: "Notice the move: Krishna says 'this teaching gets lost over and over.' Every generation has to recover it. You're not behind for not having read this at 22. You're not stupid for needing it now. The fact that you're still trying to find a frame that helps — that's the recovery. The lineage isn't a museum. It's whoever, in any era, picks up the thread and uses it."
+      body: "Notice the move: Krishna says 'this teaching gets lost over and over.' Every generation has to recover it. Whatever age you came to the Gita, whatever brought you here — you're not behind, and you're not too late. The fact that you're still trying to find a frame that helps, that's the recovery. The lineage isn't a museum. It's whoever, in any era, picks up the thread and uses it for what's actually in front of them."
     },
     reflection: "What knowledge has been handed to you — by a teacher, parent, mentor, friend — that you haven't yet 'cashed' into action? What would it look like to act on it this week?",
     whyPrompts: [
@@ -233,7 +233,7 @@ export const CHAPTERS: Chapter[] = [
     mirror: {
       headline: "The modern mirror",
       tag: "Equanimity beats escape",
-      body: "The pure-renunciation fantasy is the 'I'll just move to a cabin and grow vegetables' dream. It almost never works because the craving comes with you. Krishna's path is harder and saner: stay in the world, do the work, let the wins and losses pass through you without rearranging your insides. For someone who can't retire — this is actually the better deal. You don't need an exit. You need an internal stance that makes staying-in-the-game sustainable."
+      body: "The pure-renunciation fantasy is the 'I'll just move to a cabin and grow vegetables' dream — or the spiritual-bypass version of it, the 'I'll find peace once I escape my circumstances' move. It almost never works because the craving comes with you. Krishna's path is harder and saner: stay where you are, do what's in front of you, let the wins and losses pass through without rearranging your insides. You don't need a different life. You need an internal stance that makes this one sustainable."
     },
     reflection: "When was the last win that genuinely changed your mood for more than a day? The last loss that did? What would it cost you to let both pass through faster?",
     whyPrompts: [
@@ -273,7 +273,7 @@ export const CHAPTERS: Chapter[] = [
     mirror: {
       headline: "The modern mirror",
       tag: "Practice over perfection",
-      body: "This is the chapter for the ADHD brain. Arjuna literally says 'the mind is impossible to control.' Krishna doesn't say 'try harder' — he says 'you're right, AND it can still be done, AND if you fall off you don't lose progress.' Modern productivity culture treats every lapse as a reset to zero. The Gita treats it as a pause. You don't restart. You resume."
+      body: "Arjuna literally tells Krishna 'the mind is impossible to control — it's restless, stubborn, like trying to hold the wind.' Krishna's answer is the most generous moment in the whole book: 'You're right. AND it can still be done. AND if you fall off, you don't lose progress.' Modern culture — productivity, fitness, meditation apps, even prayer — treats every lapse as a reset to zero. The Gita treats it as a pause. You don't restart. You resume."
     },
     reflection: "What's one daily 5-minute practice you could resume — not start, RESUME — that you've fallen off? What would it look like to treat falling off as part of the practice instead of failure?",
     whyPrompts: [
@@ -553,7 +553,7 @@ export const CHAPTERS: Chapter[] = [
     mirror: {
       headline: "The modern mirror",
       tag: "You are not your thoughts",
-      body: "This is the chapter that anticipates modern therapy by a few thousand years. Your body is a field. Your mind is part of the field. Your emotions, desires, even your sense of self — all field. There's something else watching all of it. When anxiety arises, you're not the anxiety; you're what watches the anxiety arise. That tiny shift — from being the storm to being the sky the storm passes through — is the entire teaching of chapter 13."
+      body: "Your body is a field. Your mind is part of the field. Your emotions, your memories, your desires, even your sense of self — all field. There is something else watching all of it. When grief arises, you are not the grief; you are what watches the grief arise. When anger arises, when craving arises, when fear arises — same. That tiny shift, from being the storm to being the sky the storm passes through, is the entire teaching of chapter 13. Therapists rediscovered this in the 20th century. The Gita has been saying it for 2,500 years."
     },
     reflection: "Next time you're flooded by a feeling — anger, fear, craving — try the experiment: 'I'm not this; I'm what's watching this.' Does the feeling change?",
     whyPrompts: [

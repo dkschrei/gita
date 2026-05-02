@@ -2,17 +2,28 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import clsx from "clsx";
+import { canSynthesize } from "@/lib/progress";
 
-const tabs = [
+const baseTabs = [
   {
     href: "/",
-    label: "Storyboard",
+    label: "Home",
     icon: (active: boolean) => (
       <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth={active ? 2 : 1.5}>
-        <rect x="3" y="4" width="18" height="16" rx="2" />
-        <line x1="3" y1="10" x2="21" y2="10" />
-        <line x1="12" y1="10" x2="12" y2="20" />
+        <path d="M3 11l9-8 9 8v10a2 2 0 0 1-2 2h-4v-7H10v7H6a2 2 0 0 1-2-2V11z" />
+      </svg>
+    ),
+  },
+  {
+    href: "/read",
+    label: "Read",
+    icon: (active: boolean) => (
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth={active ? 2 : 1.5}>
+        <path d="M2 5l1 0a4 4 0 0 1 4 4v11a3 3 0 0 0-3-3l-2 0z" />
+        <path d="M22 5l-1 0a4 4 0 0 0-4 4v11a3 3 0 0 1 3-3l2 0z" />
+        <line x1="12" y1="9" x2="12" y2="20" />
       </svg>
     ),
   },
@@ -42,23 +53,33 @@ const tabs = [
       </svg>
     ),
   },
-  {
-    href: "/about",
-    label: "About",
-    icon: (active: boolean) => (
-      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth={active ? 2 : 1.5}>
-        <circle cx="12" cy="12" r="9" />
-        <line x1="12" y1="11" x2="12" y2="17" />
-        <circle cx="12" cy="8" r="0.8" fill="currentColor" />
-      </svg>
-    ),
-  },
 ];
+
+const synthesisTab = {
+  href: "/synthesis",
+  label: "Synthesis",
+  icon: (active: boolean) => (
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth={active ? 2 : 1.5}>
+      <circle cx="12" cy="12" r="3" />
+      <path d="M12 2v4M12 18v4M2 12h4M18 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M5.6 18.4l2.8-2.8M15.6 8.4l2.8-2.8" />
+    </svg>
+  ),
+};
 
 export default function TabBar() {
   const pathname = usePathname();
-  const isActive = (href: string) =>
-    pathname === href || (href === "/" && pathname.startsWith("/storyboard"));
+  const [showSynthesis, setShowSynthesis] = useState(false);
+
+  useEffect(() => {
+    setShowSynthesis(canSynthesize());
+  }, [pathname]);
+
+  const tabs = showSynthesis ? [...baseTabs, synthesisTab] : baseTabs;
+
+  const isActive = (href: string) => {
+    if (href === "/") return pathname === "/";
+    return pathname.startsWith(href);
+  };
 
   return (
     <>
@@ -84,7 +105,7 @@ export default function TabBar() {
                 )}
               >
                 {t.icon(active)}
-                <span className="text-[10px] tracking-wide">{t.label}</span>
+                <span className="text-[9px] tracking-wide">{t.label}</span>
               </Link>
             );
           })}
@@ -102,9 +123,12 @@ export default function TabBar() {
       >
         <div className="max-w-7xl mx-auto w-full flex items-center px-6 lg:px-10 py-3">
           <div className="flex-1 flex items-baseline gap-2">
-            <span className="text-[10px] uppercase tracking-[0.22em] text-dust-200/60">
+            <Link
+              href="/"
+              className="text-[10px] uppercase tracking-[0.22em] text-dust-200/60 hover:text-dharma-400 transition-colors"
+            >
               The Bhagavad Gita
-            </span>
+            </Link>
             <span className="text-[15px] font-serif-d text-dharma-400 hidden lg:inline">
               · Companion
             </span>
@@ -129,6 +153,22 @@ export default function TabBar() {
               );
             })}
           </div>
+          <Link
+            href="/profile"
+            className={clsx(
+              "ml-2 flex items-center gap-1.5 px-3 py-2 rounded-full text-[12px] font-medium transition-colors",
+              pathname === "/profile"
+                ? "bg-dharma-400/15 text-dharma-400"
+                : "text-dust-200/70 hover:text-dharma-400 hover:bg-dust-800/40"
+            )}
+            title="Reader profile"
+          >
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth={1.6}>
+              <circle cx="12" cy="8" r="4" />
+              <path d="M4 21c0-4.418 3.582-8 8-8s8 3.582 8 8" />
+            </svg>
+            <span className="hidden lg:inline">Profile</span>
+          </Link>
         </div>
       </nav>
     </>

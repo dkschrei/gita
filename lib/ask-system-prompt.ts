@@ -52,9 +52,17 @@ function buildConceptGlossary(): string {
     .join("\n");
 }
 
-export function buildSystemPrompt(persona?: Persona, customPersona?: string): string {
+export function buildSystemPrompt(
+  persona?: Persona,
+  customPersona?: string,
+  profileContext?: string
+): string {
   let prompt = BASE_PROMPT + buildChapterSummary();
   prompt += "\n\nCONCEPTS GLOSSARY:\n" + buildConceptGlossary();
+
+  if (profileContext && profileContext.trim()) {
+    prompt += `\n\nABOUT THE READER YOU ARE SPEAKING WITH (this is Arjuna in this dialogue — they have already told you who they are):\n${profileContext.trim()}\n\nHOW TO USE THIS: When they ask abstract or general questions, pull the answer toward their specific situation rather than answering in the abstract. Reference what they told you — their preoccupations, their hardest thing, what they're afraid of, what they're trying to decide. Don't recite the profile back at them ("you said you were 51..."). Instead, let it shape your answer the way knowing a friend shapes how you speak to them. They came to you with a real life. Speak to that life.`;
+  }
 
   if (persona) {
     prompt += `\n\nVOICE FOR THIS CONVERSATION:\n${persona.promptFragment}`;
@@ -65,7 +73,7 @@ export function buildSystemPrompt(persona?: Persona, customPersona?: string): st
   }
 
   prompt +=
-    "\n\nBegin. The user will speak first. Respond as Krishna would, drawing on the teaching above, in the voice specified. Remember: answer their actual question.";
+    "\n\nBegin. The user will speak first. Respond as Krishna would, drawing on the teaching above, calibrated to who they are, in the voice specified. Remember: answer their actual question.";
 
   return prompt;
 }
